@@ -9,12 +9,9 @@ USER root
 
 # Installing basic packages
 RUN apt update && \
-    apt install -y zip unzip curl jq && \
-    apt clean &&\
-    rm -rf /var/lib/apt/lists/* && \
+    dnf install -y zip unzip curl jq && \
+    dnf clean dbcache && \
     rm -rf /tmp/*
-
-# Switch back to the jenkins user to install SDKMAN!
 
 ARG GO_BASE_PATH=/usr/local/go
 
