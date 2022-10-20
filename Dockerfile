@@ -8,9 +8,9 @@ FROM ghcr.io/amachsoftware/jenkins-agent-amazonlinux2
 USER root
 
 # Installing basic packages
-RUN apt update && \
-    dnf install -y zip unzip curl jq && \
-    dnf clean dbcache && \
+RUN yum upgrade -y && \
+    yum install -y zip unzip curl jq && \
+    yum clean all && \
     rm -rf /tmp/*
 
 ARG GO_BASE_PATH=/usr/local/go
