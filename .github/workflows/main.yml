@@ -1,4 +1,4 @@
-name: jenkins-agent-amazonlinux2-golang19
+name: jenkins-agent-golang19
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       uses: docker/metadata-action@v3
       with:
         images: |
-          ghcr.io/amachsoftware/jenkins-agent-amazonlinux2-golang19
+          ghcr.io/amachsoftware/jenkins-agent-golang19
         tags: |
           type=raw,value={{date 'YYYYMMDD'}}
           type=sha
