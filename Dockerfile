@@ -1,16 +1,16 @@
 ARG GOLANG_VERSION=1.19
 
 FROM golang:${GOLANG_VERSION} as gosrc
-FROM ghcr.io/amachsoftware/jenkins-agent-amazonlinux2
+FROM jenkins/inbound-agent:latest
 
 
 # Switch to root
 USER root
 
 # Installing basic packages
-RUN yum upgrade -y && \
-    yum install -y zip unzip curl jq && \
-    yum clean all && \
+RUN apt-get update && \
+    apt-get install -y zip unzip curl jq && \
+    apt-get clean && \
     rm -rf /tmp/*
 
 ARG GO_BASE_PATH=/usr/local/go
