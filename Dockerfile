@@ -3,13 +3,12 @@ ARG GOLANG_VERSION=1.19
 FROM golang:${GOLANG_VERSION} as gosrc
 FROM jenkins/inbound-agent:latest
 
-
 # Switch to root
 USER root
 
 # Installing basic packages
 RUN apt-get update && \
-    apt-get install -y zip unzip curl jq && \
+    apt-get install --no-install-recommends -y zip unzip curl jq && \
     apt-get clean && \
     rm -rf /tmp/*
 
